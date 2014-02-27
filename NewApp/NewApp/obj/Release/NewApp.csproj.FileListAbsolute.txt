@@ -1,0 +1,8 @@
+D:\Programs\Projects\NewApp\NewApp\bin\Release\NewApp.exe.config
+D:\Programs\Projects\NewApp\NewApp\bin\Release\NewApp.exe
+D:\Programs\Projects\NewApp\NewApp\bin\Release\NewApp.pdb
+D:\Programs\Projects\NewApp\NewApp\obj\Release\NewApp.Form1.resources
+D:\Programs\Projects\NewApp\NewApp\obj\Release\NewApp.Properties.Resources.resources
+D:\Programs\Projects\NewApp\NewApp\obj\Release\NewApp.csproj.GenerateResource.Cache
+D:\Programs\Projects\NewApp\NewApp\obj\Release\NewApp.exe
+D:\Programs\Projects\NewApp\NewApp\obj\Release\NewApp.pdb

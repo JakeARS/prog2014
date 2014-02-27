@@ -108,17 +108,22 @@ namespace NewApp
             var result = sfd.ShowDialog(this);
             if (result == DialogResult.OK)
             {
-                var fileName = sfd.FileName;
+                var fileName = sfd.FileName;                
                 ShopData pd = new ShopData();
-                pd.ItemType = new List<ShopType>();
+                var line = new ProductList();
+                pd.Items = new List<ProductList>();
                 if (checkBox1.Checked)
-                pd.ItemType.Add(ShopType.Hol);
+                    //pd.Items.Add(ProductType.Hol);
+                    pd.Items.Add(new ProductList() { Type = ProductType.Hol, Quantity = (Int32) numericUpDown1.Value });
                 if (checkBox2.Checked)
-                pd.ItemType.Add(ShopType.Stir);
+                    //pd.Items.Add(ProductType.Stir);
+                    pd.Items.Add(new ProductList() { Type = ProductType.Stir, Quantity = (Int32)numericUpDown2.Value });
                 if (checkBox3.Checked)
-                pd.ItemType.Add(ShopType.CVH);
+                    //pd.Items.Add(ProductLType.CVH);
+                    pd.Items.Add(new ProductList() { Type = ProductType.CVH, Quantity = (Int32)numericUpDown3.Value });
                 if (checkBox4.Checked)
-                pd.ItemType.Add(ShopType.Plita);
+                    //pd.Items.Add(ProductType.Plita);
+                    pd.Items.Add(new ProductList() { Type = ProductType.Plita, Quantity = (Int32)numericUpDown4.Value });
                 
 
                 XmlSerializer xs = new XmlSerializer(typeof(ShopData));
@@ -139,11 +144,25 @@ namespace NewApp
                 var pd = (ShopData)xs.Deserialize(file);
                 file.Close();
 
-                checkBox1.Checked = pd.ItemType.Contains(ShopType.Hol);
-                checkBox2.Checked = pd.ItemType.Contains(ShopType.Stir);
-                checkBox3.Checked = pd.ItemType.Contains(ShopType.CVH);
-                checkBox4.Checked = pd.ItemType.Contains(ShopType.Plita);
-               
+                foreach(var line in pd.Items)
+                {
+                    if(line.Type==ProductType.Hol)
+                    {                
+                        checkBox1.Checked = true; numericUpDown1.Value = line.Quantity;
+                    }
+                    if (line.Type == ProductType.Stir)
+                    {
+                        checkBox2.Checked = true; numericUpDown2.Value = line.Quantity;
+                    }
+                    if (line.Type == ProductType.CVH)
+                    {
+                        checkBox3.Checked = true; numericUpDown3.Value = line.Quantity;
+                    }
+                    if (line.Type == ProductType.Plita)
+                    {
+                        checkBox4.Checked = true; numericUpDown4.Value = line.Quantity;
+                    }
+                }               
             }
         }
 
@@ -186,15 +205,17 @@ namespace NewApp
         {
             RecalcTotalTable();
         }
-
-
-
     }
     public class ShopData
     {        
-        public List<ShopType> ItemType { get; set; }
+        public List<ProductList> Items { get; set; }
     }
-    public enum ShopType
+    public class ProductList
+    {
+        public ProductType Type { get; set; }
+        public int Quantity { get; set; }
+    }
+    public enum ProductType
     {
         Hol, Stir, CVH, Plita
     }
