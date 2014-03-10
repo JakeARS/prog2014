@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="xrRichText1.SerializableRtfString" xml:space="preserve">
     <value>ewBcAHIAdABmADEAXABhAG4AcwBpAFwAYQBuAHMAaQBjAHAAZwAxADIANQAxAFwAZABlAGYAZgAwAHsAXABmAG8AbgB0AHQAYgBsAHsAXABmADAAXABmAG4AaQBsAFwAZgBjAGgAYQByAHMAZQB0ADIAMAA0ACAAVgBlAHIAZABhAG4AYQA7AH0AewBcAGYAMQBcAGYAbgBpAGwAXABmAGMAaABhAHIAcwBlAHQAMAAgAFYAZQByAGQAYQBuAGEAOwB9AHsAXABmADIAXABmAG4AaQBsACAAVABpAG0AZQBzACAATgBlAHcAIABSAG8AbQBhAG4AOwB9AH0ADQAKAHsAXABjAG8AbABvAHIAdABiAGwAIAA7AFwAcgBlAGQAMABcAGcAcgBlAGUAbgAwAFwAYgBsAHUAZQAwADsAfQANAAoAXAB2AGkAZQB3AGsAaQBuAGQANABcAHUAYwAxAFwAcABhAHIAZABcAGMAZgAxAFwAbABhAG4AZwAxADAANAA5AFwAZgAwAFwAZgBzADMANgBcACcAZAAxAFwAJwBlAGYAXAAnAGUAOABcACcAZgAxAFwAJwBlAGUAXAAnAGUAYQBcAGYAMQAgACAAXABmADAAXAAnAGUAZgBcACcAZQBlAFwAJwBlAGEAXAAnAGYAMwBcACcAZQBmAFwAJwBlAGEAXAAnAGUAOABcAGMAZgAwAFwAZgAyAFwAZgBzADIANABcAHAAYQByAA0ACgB9AA0ACgA=</value>
   </data>
+  <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>
