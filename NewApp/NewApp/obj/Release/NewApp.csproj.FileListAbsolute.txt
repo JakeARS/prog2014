@@ -6,3 +6,6 @@ D:\Programs\Projects\NewApp\NewApp\obj\Release\NewApp.Properties.Resources.resou
 D:\Programs\Projects\NewApp\NewApp\obj\Release\NewApp.csproj.GenerateResource.Cache
 D:\Programs\Projects\NewApp\NewApp\obj\Release\NewApp.exe
 D:\Programs\Projects\NewApp\NewApp\obj\Release\NewApp.pdb
+D:\Programs\Projects\NewApp\NewApp\obj\Release\NewApp.exe.licenses
+D:\Programs\Projects\NewApp\NewApp\obj\Release\NewApp.XtraReport1.resources
+D:\Programs\Projects\NewApp\NewApp\obj\Release\NewApp.csprojResolveAssemblyReference.cache

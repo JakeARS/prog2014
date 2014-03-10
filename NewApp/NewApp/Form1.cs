@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using DevExpress.XtraReports.UI;
 
 namespace NewApp
 {
@@ -74,6 +75,8 @@ namespace NewApp
                 pictureBox4.Image = null;
             }
             label10.Text = s.ToString();
+
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -166,6 +169,13 @@ namespace NewApp
             }
         }
 
+        private ShopData CreateShopData()
+        {
+            ShopData sd = new ShopData();
+            sd.Items = new List<ProductList>();
+            return sd;
+        }
+
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             RecalcTotalTable();
@@ -205,15 +215,103 @@ namespace NewApp
         {
             RecalcTotalTable();
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkBox1.Checked = listBox1.SelectedItem != null;
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            var xr = new XtraReport1();
+            ShopData sd = CreateShopData();
+            xr.DataSource = new BindingSource() { DataSource = sd };
+            xr.ShowPreview();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var pl = new ProductList
+            {
+                Hol = checkBox1.Checked,
+                Stir = checkBox2.Checked,
+                CVH = checkBox3.Checked,
+                Plita = checkBox4.Checked,
+                n1 = numericUpDown1.Value,
+                n2 = numericUpDown2.Value,
+                n3 = numericUpDown3.Value,
+                n4 = numericUpDown4.Value,
+            };
+            
+            
+            listBox1.Items.Add(pl);
+        }
     }
+
     public class ShopData
-    {        
+    {
+        public ProductType product { get; set; }
         public List<ProductList> Items { get; set; }
+
+        /*[XmlIgnore]
+        public string Caption
+        {            
+            get 
+            {
+                if (product == ProductType.Hol)
+                { return "Холодильник"; }
+                if (product == ProductType.Stir)
+                { return "Стиралка"; }
+                if (product == ProductType.CVH)
+                { return "Печь"; }
+                return "плита";
+            }
+        }*/
     }
     public class ProductList
     {
         public ProductType Type { get; set; }
         public int Quantity { get; set; }
+        public bool Hol { get; set; }
+        public bool Stir { get; set; }
+        public bool CVH { get; set; }
+        public bool Plita { get; set; }
+        public decimal n1 { get; set; }
+        public decimal n2 { get; set; }
+        public decimal n3 { get; set; }
+        public decimal n4 { get; set; }
+       
+        [XmlIgnore]
+        public string BarCode
+        {
+            get
+            {
+                return this.ToString();               
+            }
+        }
+
+        [XmlIgnore]
+        public string Description 
+        { 
+            get 
+            { 
+                return this.ToString(); 
+            } 
+        }
+
+        public override string ToString()
+        {
+            var s = ".";
+            if (Hol)
+                s = "Холодильник " + n1 + "шт, " + s;
+            if (Stir)
+                s = "Стиральная машина " + n2 + "шт, " + s;
+            if (CVH)
+                s = "СВЧ печь " + n3 + "шт, " + s;
+            if (Plita)
+                s = "Плита " + n4 + "шт, " + s;
+            return s;
+        }
     }
     public enum ProductType
     {
