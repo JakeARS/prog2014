@@ -112,26 +112,26 @@ namespace NewApp
             if (result == DialogResult.OK)
             {
                 var fileName = sfd.FileName;                
-                ShopData pd = new ShopData();
+                ShopData sd = new ShopData();
                 var line = new ProductList();
-                pd.Items = new List<ProductList>();
+                sd.Items = new List<ProductList>();
                 if (checkBox1.Checked)
                     //pd.Items.Add(ProductType.Hol);
-                    pd.Items.Add(new ProductList() { Type = ProductType.Hol, Quantity = (Int32) numericUpDown1.Value });
+                    sd.Items.Add(new ProductList() { Type = ProductType.Hol, Quantity = (Int32) numericUpDown1.Value });
                 if (checkBox2.Checked)
                     //pd.Items.Add(ProductType.Stir);
-                    pd.Items.Add(new ProductList() { Type = ProductType.Stir, Quantity = (Int32)numericUpDown2.Value });
+                    sd.Items.Add(new ProductList() { Type = ProductType.Stir, Quantity = (Int32)numericUpDown2.Value });
                 if (checkBox3.Checked)
                     //pd.Items.Add(ProductLType.CVH);
-                    pd.Items.Add(new ProductList() { Type = ProductType.CVH, Quantity = (Int32)numericUpDown3.Value });
+                    sd.Items.Add(new ProductList() { Type = ProductType.CVH, Quantity = (Int32)numericUpDown3.Value });
                 if (checkBox4.Checked)
                     //pd.Items.Add(ProductType.Plita);
-                    pd.Items.Add(new ProductList() { Type = ProductType.Plita, Quantity = (Int32)numericUpDown4.Value });
+                    sd.Items.Add(new ProductList() { Type = ProductType.Plita, Quantity = (Int32)numericUpDown4.Value });
                 
 
                 XmlSerializer xs = new XmlSerializer(typeof(ShopData));
                 var fileStream = File.Create(fileName);
-                xs.Serialize(fileStream, pd);
+                xs.Serialize(fileStream, sd);
                 fileStream.Close();
             }
         }
@@ -144,10 +144,10 @@ namespace NewApp
             {
                 var xs = new XmlSerializer(typeof(ShopData));
                 var file = File.Open(ofd.FileName, FileMode.Open);
-                var pd = (ShopData)xs.Deserialize(file);
+                var sd = (ShopData)xs.Deserialize(file);
                 file.Close();
 
-                foreach(var line in pd.Items)
+                foreach(var line in sd.Items)
                 {
                     if(line.Type==ProductType.Hol)
                     {                
@@ -173,14 +173,10 @@ namespace NewApp
         {
             ShopData sd = new ShopData();
             sd.Items = new List<ProductList>();
-            if (checkBox1.Checked)
-                sd.product = ProductType.Hol;
-            if (checkBox2.Checked)
-                sd.product = ProductType.Stir;
-            if (checkBox3.Checked)
-                sd.product = ProductType.CVH;
-            if (checkBox4.Checked)
-                sd.product = ProductType.Plita;
+            foreach (ProductList el in listBox1.Items)
+            {
+                sd.Items.Add(el);
+            }
             return sd;
         }
 
@@ -249,10 +245,24 @@ namespace NewApp
                 n2 = numericUpDown2.Value,
                 n3 = numericUpDown3.Value,
                 n4 = numericUpDown4.Value,
-            };
-            
-            
-            listBox1.Items.Add(pl);
+                };
+            if (listBox1.Items.Count < 1)
+            {
+                listBox1.Items.Add(pl);
+            }            
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            checkBox1.Checked = false;
+            checkBox2.Checked = false;
+            checkBox3.Checked = false;
+            checkBox4.Checked = false;
+            listBox1.Items.Clear();
+            numericUpDown1.Value = 1;
+            numericUpDown2.Value = 1;
+            numericUpDown3.Value = 1;
+            numericUpDown4.Value = 1;
         }
     }
 
@@ -261,20 +271,14 @@ namespace NewApp
         public ProductType product { get; set; }
         public List<ProductList> Items { get; set; }
 
-        /*[XmlIgnore]
-        public string Caption
-        {            
-            get 
-            {
-                if (product == ProductType.Hol)
-                { return "Холодильник"; }
-                if (product == ProductType.Stir)
-                { return "Стиралка"; }
-                if (product == ProductType.CVH)
-                { return "Печь"; }
-                return "плита";
+        [XmlIgnore]
+        public string DataField 
+        { 
+            get
+            {   
+                return "fsf".ToString();
             }
-        }*/
+        }
     }
     public class ProductList
     {
@@ -289,25 +293,6 @@ namespace NewApp
         public decimal n3 { get; set; }
         public decimal n4 { get; set; }
 
-
-        [XmlIgnore]
-        public string DataField 
-        { 
-            get
-            {   
-                return "данные";
-            }
-        }
-
-        [XmlIgnore]
-        public string BarCode
-        {
-            get
-            {
-                return this.ToString();               
-            }
-        }
-
         [XmlIgnore]
         public string Description 
         { 
@@ -321,13 +306,13 @@ namespace NewApp
         {
             var s = ".";
             if (Hol)
-                s = "Холодильник " + n1 + "шт, " + s;
+                s = "Холодильник " + s;
             if (Stir)
-                s = "Стиральная машина " + n2 + "шт, " + s;
+                s = "Стиральная машина " + s;
             if (CVH)
-                s = "СВЧ печь " + n3 + "шт, " + s;
+                s = "СВЧ печь " + s;
             if (Plita)
-                s = "Плита " + n4 + "шт, " + s;
+                s = "Плита " + s;
             return s;
         }
     }
