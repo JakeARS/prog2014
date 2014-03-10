@@ -173,6 +173,14 @@ namespace NewApp
         {
             ShopData sd = new ShopData();
             sd.Items = new List<ProductList>();
+            if (checkBox1.Checked)
+                sd.product = ProductType.Hol;
+            if (checkBox2.Checked)
+                sd.product = ProductType.Stir;
+            if (checkBox3.Checked)
+                sd.product = ProductType.CVH;
+            if (checkBox4.Checked)
+                sd.product = ProductType.Plita;
             return sd;
         }
 
@@ -280,7 +288,17 @@ namespace NewApp
         public decimal n2 { get; set; }
         public decimal n3 { get; set; }
         public decimal n4 { get; set; }
-       
+
+
+        [XmlIgnore]
+        public string DataField 
+        { 
+            get
+            {   
+                return "данные";
+            }
+        }
+
         [XmlIgnore]
         public string BarCode
         {
