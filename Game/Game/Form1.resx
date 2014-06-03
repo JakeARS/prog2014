@@ -117,18 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="player.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAgCAYAAAAbifjMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAEFSURBVEhLrZXRDQMhDEMZpyN0rI7RETpahzmJNkhGwXGAin4gAZe8GDBcqbUW1d63UrmpuJCs
-        Em3uet2/+bHYAJglHwFmyxkUPB+lollFazZGX6noAB/IfYZ4UApQSV4JIA2gZDMgUyEBvpLfF9/HkQ6A
-        TLaCDAAMeCm8Zoy9oaQTVaLBl07EhppxWDbmGCKNNAOwksEHqLoCeEg4Bfu4AwAkAHBx1B4w2Paju9DL
-        zxSo+RSQvQ2sTALMBwzAXACwabLKmOf4cgywnfSQXxS0U/CAVTIvowOss5uMuOE6Z8kImn1vS9j5C2Ux
-        /wH4hxVG4XvPBgpPWhbAzx0XCFbeVYC4Y8AHPKDJBRPtaLQAAAAASUVORK5CYII=
-</value>
-  </data>
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>40</value>
   </metadata>
 </root>
